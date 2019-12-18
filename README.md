@@ -26,7 +26,7 @@ const isItAHolidayToday = isHoliday();
 const isThisAHoliday = isHoliday(new Date("2019-12-24")); 
 ```
 The result will always be an ```Array``` filled with JSON formatted holiday information including name and date.
-```json
+```js
 [
     {
         name: 'Julafton',
