@@ -2,10 +2,12 @@
 Library for calculating the date of all swedish holidays for any given year.
 
 ## How to install:
-`npm install swedish-holidays`
+```shell
+$ npm install swedish-holidays
+```
 
 ## How to use:
-```
+```js
 const { getHolidays, getUpcomingHolidays, isHoliday } = require('swedish-holidays');
 
 // Get an array of all holidays for the current
@@ -24,18 +26,18 @@ const isItAHolidayToday = isHoliday();
 const isThisAHoliday = isHoliday(new Date("2019-12-24")); 
 ```
 The result will always be an ```Array``` filled with JSON formatted holiday information including name and date.
-```
+```json
 [
     {
         name: 'Julafton',
-        date: 2019-12-24T00:00:00.000Z,
+        date: '2019-12-24T00:00:00.000Z',
         day: 24,
         month: 12,
         year: 2019
     },
     {
         name: 'Juldagen',
-        date: 2019-12-25T00:00:00.000Z,
+        date: '2019-12-25T00:00:00.000Z',
         day: 25,
         month: 12,
         year: 2019
@@ -43,7 +45,7 @@ The result will always be an ```Array``` filled with JSON formatted holiday info
     ...
 ]   
 ```
-When using  ```isHoliday``` the result is ```true``` or ```false```.
+When using  `isHoliday` the result is `true` or `false`.
 
 ## Limitations
 This library can only return valid holidays for years between 1582 to 8702.
