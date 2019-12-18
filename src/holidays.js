@@ -165,5 +165,5 @@ const getHolidaysForYear = (year, language) => {
     return holidays.sort((a,b) => a.date.getTime() - b.date.getTime());
 }
 
-module.exports = { getHolidays: getHolidaysForYear, getUpcomingHolidays }
+module.exports = { getHolidays: getHolidaysForYear, getUpcomingHolidays, isHoliday }
 
