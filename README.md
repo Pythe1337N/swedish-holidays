@@ -45,7 +45,7 @@ The result will always be an ```Array``` filled with JSON formatted holiday info
     ...
 ]   
 ```
-When using  `isHoliday` the result is `true` or `false`.
+When using  `isHoliday` the result is `false` if the provided date is not a holiday, otherwise it is the holiday JSON object.
 
 ## Limitations
 This library can only return valid holidays for years between 1582 to 8702.

@@ -54,11 +54,12 @@ const isHoliday = (date, language) => {
         return isHoliday(new Date());
     }
     const holidays = getHolidaysForYear(date.getFullYear(), language);
-    return holidays.some(holiday => 
+    const [holiday] = holidays.filter(holiday => 
         holiday.day === date.getDate() &&
         holiday.month === (date.getMonth() + 1) &&
         holiday.year === date.getFullYear()
     );
+    return holiday || false;
 }
 
 const getHolidayJSON = (name, date) => ({

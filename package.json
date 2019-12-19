@@ -23,7 +23,8 @@
   "author": "Oskar Bernberg (Pythe1337N)",
   "license": "MIT",
   "files": [
-    "dist/*"
+    "dist/*",
+    "examples/*"
   ],
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -36,5 +37,6 @@
   "homepage": "https://github.com/Pythe1337N/swedish-holidays#readme",
   "bugs": {
     "url": "https://github.com/Pythe1337N/swedish-holidays/issues"
-  }
+  },
+  "runkitExampleFilename": "./examples/example.js"
 }
