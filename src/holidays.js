@@ -131,7 +131,7 @@ const getHolidaysForYear = (year, language) => {
         const christSkyFly = easterSunday.plusWeeks(6).plusDays(-3);
         const pingst = easterSunday.plusWeeks(7);
 
-        holidays.push(getHolidayJSON(language.goodFriday, easterSunday.plusDays(-3)));
+        holidays.push(getHolidayJSON(language.cuttingThursday, easterSunday.plusDays(-3)));
         holidays.push(getHolidayJSON(language.goodFriday, easterSunday.plusDays(-2)));
         holidays.push(getHolidayJSON(language.holySaturday, easterSunday.plusDays(-1)));
         holidays.push(getHolidayJSON(language.easterSunday, easterSunday));
