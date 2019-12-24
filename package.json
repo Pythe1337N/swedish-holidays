@@ -1,6 +1,6 @@
 {
   "name": "swedish-holidays",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Library for calculating the date of all swedish holidays for any given year.",
   "main": "./dist/holidays.js",
   "scripts": {
