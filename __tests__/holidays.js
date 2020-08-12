@@ -1,4 +1,4 @@
-const { getHolidays } = require('../dist/holidays');
+const { getHolidays, language } = require('../dist/holidays');
 
 const expectations = [
     {
@@ -147,4 +147,12 @@ test('Return a nice list with all holidays for 2020', () => {
             expectation.name === holiday.name;
     }).every(h => h);
     expect(allIsValid).toBeTruthy();
+});
+
+test('Handle translations', () => {
+    const translation = { ...language };
+    translation.christmasEve = 'Christmas Eve';
+    const [christmas] = getHolidays(2020, translation).filter(holiday => holiday.day === 24 && holiday.month === 12);
+    expect(christmas).toBeDefined();
+    expect(christmas.name).toEqual('Christmas Eve');
 });

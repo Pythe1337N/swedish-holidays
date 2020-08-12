@@ -45,33 +45,47 @@ The result will always be an ```Array``` filled with JSON formatted holiday info
     ...
 ]   
 ```
-When using  `isHoliday` the result is `false` if the provided date is not a holiday, otherwise it is the holiday JSON object.
+When using `isHoliday` the result is `false` if the provided date is not a holiday, otherwise it is the holiday JSON object.
+
+## Localization
+If you want the holiday names to be returned using a different language than the default (Swedish), use the `language` JSON object and modify it before passing it to the `getHolidays` function.
+```js
+const { language } = require('swedish-holidays');
+const translation = { ...language };
+// This value is 'Julafton' by default.
+translation.christmasEve = 'Christmas Eve';
+
+const holidays2019 = getHolidays(2019, translation);
+// or if you want the current year
+// supply a year that is 'falsy' e.g. undefined / null / 0 / false
+const holidays = getHolidays(0, translation);
+ ```
 
 ## Limitations
-This library can only return valid holidays for years between 1582 to 8702.
+This library can only return valid holidays for years between 1582 and 8702.
 
 If an invalid year is requested, some holidays will be missing.
 
 ## Supported Holidays
-* Nyårsdagen
-* Trettondagsafton
-* Trettondedag jul
-* Skärtorsdagen
-* Långfredagen
-* Påskafton
-* Påskdagen
-* Annandag påsk
-* Valborgsmässoafton
-* Första maj
-* Kristi himmelsfärdsdag
-* Sveriges nationaldag
-* Pingstafton
-* Pingstdagen
-* Midsommarafton
-* Midsommardagen
-* Allhelgonaafton
-* Alla helgons dag
-* Julafton
-* Juldagen
-* Annandag jul
-* Nyårsafton
+| New Year's Day | Nyårsdagen |
+| Twelfth Night / Trettondagsafton |
+| Epiphany | Trettondedag jul |
+| Maundy Thursday | Skärtorsdagen |
+| Good Friday | Långfredagen |
+| Holy Saturday | Påskafton |
+| Easter Sunday | Påskdagen |
+| Easter Monday | Annandag påsk |
+| Walpurgis Night | Valborgsmässoafton |
+| May First | Första maj |
+| Ascension Day | Kristi himmelsfärdsdag |
+| Swedish National Day | Sveriges nationaldag |
+| Pentecost Eve | Pingstafton |
+| Whit Sunday | Pingstdagen |
+| Midsummer Eve | Midsommarafton |
+| Midsummer Day | Midsommardagen |
+| All Saints Eve | Allhelgonaafton |
+| All Saints Day | Alla helgons dag |
+| Christmas Eve | Julafton |
+| Christmas Day | Juldagen |
+| Boxing Day | Annandag jul |
+| New Years Eve | Nyårsafton |
