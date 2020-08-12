@@ -20,16 +20,16 @@ const swedishHolidayNames = {
     newYearsDay: 'Nyårsdagen',
     twelfthNight: 'Trettondagsafton',
     epiphany: 'Trettondedag jul',
-    cuttingThursday: 'Skärtorsdagen',
+    maundyThursday: 'Skärtorsdagen',
     goodFriday: 'Långfredagen',
     holySaturday: 'Påskafton',
     easterSunday: 'Påskdagen',
     easterMonday: 'Annandag påsk',
     walpurgisNight: 'Valborgsmässoafton',
     mayFirst: 'Första maj',
-    christSkyFly: 'Kristi himmelsfärdsdag',
+    ascensionDay: 'Kristi himmelsfärdsdag',
     swedishNationalDay: 'Sveriges nationaldag',
-    pentecstEve: 'Pingstafton',
+    pentecostEve: 'Pingstafton',
     whitSunday: 'Pingstdagen',
     midsummerEve: 'Midsommarafton',
     midsummerDay: 'Midsommardagen',
@@ -41,20 +41,14 @@ const swedishHolidayNames = {
     newYearsEve: 'Nyårsafton'
 }
 
-const SUNDAY = 0;
-const MONDAY = 1;
-const TUESDAY = 2;
-const WEDNESDAY = 3;
-const THURSDAY = 4;
 const FRIDAY = 5;
-const SAUTRDAY = 6;
 
 const isHoliday = (date, language) => {
     if (!date) {
         return isHoliday(new Date());
     }
     const holidays = getHolidaysForYear(date.getFullYear(), language);
-    const [holiday] = holidays.filter(holiday => 
+    const [holiday] = holidays.filter(holiday =>
         holiday.day === date.getDate() &&
         holiday.month === (date.getMonth() + 1) &&
         holiday.year === date.getFullYear()
@@ -85,8 +79,8 @@ const getUpcomingHolidays = (language) => {
     const nextYear = new Date().plusYears(1);
     return getHolidaysForYear(now.getFullYear(), language)
         .concat(getHolidaysForYear(nextYear.getFullYear(), language))
-        .filter(holiday => 
-            holiday.date.getTime() >= now.getTime() && 
+        .filter(holiday =>
+            holiday.date.getTime() >= now.getTime() &&
             holiday.date.getTime() < nextYear.getTime()
         );
 }
@@ -107,7 +101,7 @@ const getHolidaysForYear = (year, language) => {
         const sunday = Math.floor((((5 * year) / 4) - corx - 10));
         let epact = Math.floor(((11 * goldenNumber + 20 + corz - corx) + 30 ) % 30);
 
-        if (((epact === 25) && (goldenNumber > 11)) || (epact == 24)) {
+        if (((epact === 25) && (goldenNumber > 11)) || (epact === 24)) {
             epact += 1;
         }
 
@@ -131,15 +125,15 @@ const getHolidaysForYear = (year, language) => {
         const christSkyFly = easterSunday.plusWeeks(6).plusDays(-3);
         const pingst = easterSunday.plusWeeks(7);
 
-        holidays.push(getHolidayJSON(language.cuttingThursday, easterSunday.plusDays(-3)));
+        holidays.push(getHolidayJSON(language.maundyThursday, easterSunday.plusDays(-3)));
         holidays.push(getHolidayJSON(language.goodFriday, easterSunday.plusDays(-2)));
         holidays.push(getHolidayJSON(language.holySaturday, easterSunday.plusDays(-1)));
         holidays.push(getHolidayJSON(language.easterSunday, easterSunday));
         holidays.push(getHolidayJSON(language.easterMonday, easterSunday.plusDays(1)));
 
-        holidays.push(getHolidayJSON(language.christSkyFly, christSkyFly));
+        holidays.push(getHolidayJSON(language.ascensionDay, christSkyFly));
 
-        holidays.push(getHolidayJSON(language.pentecstEve, pingst.plusDays(-1)));
+        holidays.push(getHolidayJSON(language.pentecostEve, pingst.plusDays(-1)));
         holidays.push(getHolidayJSON(language.whitSunday, pingst));
     }
 

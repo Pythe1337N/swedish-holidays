@@ -19,7 +19,6 @@ catalina.base_IS_UNDEFINED
 
 # node
 node_modules
-package-lock.json
 dist
 
 # tests
