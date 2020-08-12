@@ -67,25 +67,25 @@ This library can only return valid holidays for years between 1582 and 8702.
 If an invalid year is requested, some holidays will be missing.
 
 ## Supported Holidays
-| New Year's Day | Nyårsdagen |
-| Twelfth Night / Trettondagsafton |
-| Epiphany | Trettondedag jul |
-| Maundy Thursday | Skärtorsdagen |
-| Good Friday | Långfredagen |
-| Holy Saturday | Påskafton |
-| Easter Sunday | Påskdagen |
-| Easter Monday | Annandag påsk |
-| Walpurgis Night | Valborgsmässoafton |
-| May First | Första maj |
-| Ascension Day | Kristi himmelsfärdsdag |
-| Swedish National Day | Sveriges nationaldag |
-| Pentecost Eve | Pingstafton |
-| Whit Sunday | Pingstdagen |
-| Midsummer Eve | Midsommarafton |
-| Midsummer Day | Midsommardagen |
-| All Saints Eve | Allhelgonaafton |
-| All Saints Day | Alla helgons dag |
-| Christmas Eve | Julafton |
-| Christmas Day | Juldagen |
-| Boxing Day | Annandag jul |
-| New Years Eve | Nyårsafton |
+* New Year's Day / Nyårsdagen
+* Twelfth Night / Trettondagsafton
+* Epiphany / Trettondedag jul
+* Maundy Thursday / Skärtorsdagen
+* Good Friday / Långfredagen
+* Holy Saturday / Påskafton
+* Easter Sunday / Påskdagen
+* Easter Monday / Annandag påsk
+* Walpurgis Night / Valborgsmässoafton
+* May First / Första maj
+* Ascension Day / Kristi himmelsfärdsdag
+* Swedish National Day / Sveriges nationaldag
+* Pentecost Eve / Pingstafton
+* Whit Sunday / Pingstdagen
+* Midsummer Eve / Midsommarafton
+* Midsummer Day / Midsommardagen
+* All Saints Eve / Allhelgonaafton
+* All Saints Day / Alla helgons dag
+* Christmas Eve / Julafton
+* Christmas Day / Juldagen
+* Boxing Day / Annandag jul
+* New Years Eve / Nyårsafton
