@@ -1,155 +1,155 @@
-const { getHolidays, language } = require("../dist/holidays");
+const { getHolidays, language } = require('../dist/holidays');
 
 const expectations = [
   {
-    name: "Nyårsdagen",
+    name: 'Nyårsdagen',
     day: 1,
     month: 1,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Trettondagsafton",
+    name: 'Trettondagsafton',
     day: 5,
     month: 1,
     year: 2020,
     isPublicHoliday: false,
   },
   {
-    name: "Trettondedag jul",
+    name: 'Trettondedag jul',
     day: 6,
     month: 1,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Skärtorsdagen",
+    name: 'Skärtorsdagen',
     day: 9,
     month: 4,
     year: 2020,
     isPublicHoliday: false,
   },
   {
-    name: "Långfredagen",
+    name: 'Långfredagen',
     day: 10,
     month: 4,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Påskafton",
+    name: 'Påskafton',
     day: 11,
     month: 4,
     year: 2020,
     isPublicHoliday: false,
   },
   {
-    name: "Påskdagen",
+    name: 'Påskdagen',
     day: 12,
     month: 4,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Annandag påsk",
+    name: 'Annandag påsk',
     day: 13,
     month: 4,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Valborgsmässoafton",
+    name: 'Valborgsmässoafton',
     day: 30,
     month: 4,
     year: 2020,
     isPublicHoliday: false,
   },
   {
-    name: "Första maj",
+    name: 'Första maj',
     day: 1,
     month: 5,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Kristi himmelsfärdsdag",
+    name: 'Kristi himmelsfärdsdag',
     day: 21,
     month: 5,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Pingstafton",
+    name: 'Pingstafton',
     day: 30,
     month: 5,
     year: 2020,
     isPublicHoliday: false,
   },
   {
-    name: "Pingstdagen",
+    name: 'Pingstdagen',
     day: 31,
     month: 5,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Sveriges nationaldag",
+    name: 'Sveriges nationaldag',
     day: 6,
     month: 6,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Midsommarafton",
+    name: 'Midsommarafton',
     day: 19,
     month: 6,
     year: 2020,
     isPublicHoliday: false,
   },
   {
-    name: "Midsommardagen",
+    name: 'Midsommardagen',
     day: 20,
     month: 6,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Allhelgonaafton",
+    name: 'Allhelgonaafton',
     day: 30,
     month: 10,
     year: 2020,
     isPublicHoliday: false,
   },
   {
-    name: "Alla helgons dag",
+    name: 'Alla helgons dag',
     day: 31,
     month: 10,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Julafton",
+    name: 'Julafton',
     day: 24,
     month: 12,
     year: 2020,
     isPublicHoliday: false,
   },
   {
-    name: "Juldagen",
+    name: 'Juldagen',
     day: 25,
     month: 12,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Annandag jul",
+    name: 'Annandag jul',
     day: 26,
     month: 12,
     year: 2020,
     isPublicHoliday: true,
   },
   {
-    name: "Nyårsafton",
+    name: 'Nyårsafton',
     day: 31,
     month: 12,
     year: 2020,
@@ -157,7 +157,7 @@ const expectations = [
   },
 ];
 
-test("Return a nice list with all holidays for 2020", () => {
+test('Return a nice list with all holidays for 2020', () => {
   const holidays = getHolidays(2020);
   expect(holidays).toBeDefined();
   expect(holidays.length).toEqual(expectations.length);
@@ -176,12 +176,12 @@ test("Return a nice list with all holidays for 2020", () => {
   expect(allIsValid).toBeTruthy();
 });
 
-test("Handle translations", () => {
+test('Handle translations', () => {
   const translation = { ...language };
-  translation.christmasEve = "Christmas Eve";
+  translation.christmasEve = 'Christmas Eve';
   const [christmas] = getHolidays(2020, translation).filter(
     (holiday) => holiday.day === 24 && holiday.month === 12
   );
   expect(christmas).toBeDefined();
-  expect(christmas.name).toEqual("Christmas Eve");
+  expect(christmas.name).toEqual('Christmas Eve');
 });

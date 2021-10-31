@@ -17,28 +17,28 @@ Date.prototype.plusYears = function (d) {
 };
 
 const swedishHolidayNames = {
-  newYearsDay: "Nyårsdagen",
-  twelfthNight: "Trettondagsafton",
-  epiphany: "Trettondedag jul",
-  maundyThursday: "Skärtorsdagen",
-  goodFriday: "Långfredagen",
-  holySaturday: "Påskafton",
-  easterSunday: "Påskdagen",
-  easterMonday: "Annandag påsk",
-  walpurgisNight: "Valborgsmässoafton",
-  mayFirst: "Första maj",
-  ascensionDay: "Kristi himmelsfärdsdag",
-  swedishNationalDay: "Sveriges nationaldag",
-  pentecostEve: "Pingstafton",
-  whitSunday: "Pingstdagen",
-  midsummerEve: "Midsommarafton",
-  midsummerDay: "Midsommardagen",
-  allSaintsEve: "Allhelgonaafton",
-  allSaintsDay: "Alla helgons dag",
-  christmasEve: "Julafton",
-  christmasDay: "Juldagen",
-  boxingDay: "Annandag jul",
-  newYearsEve: "Nyårsafton",
+  newYearsDay: 'Nyårsdagen',
+  twelfthNight: 'Trettondagsafton',
+  epiphany: 'Trettondedag jul',
+  maundyThursday: 'Skärtorsdagen',
+  goodFriday: 'Långfredagen',
+  holySaturday: 'Påskafton',
+  easterSunday: 'Påskdagen',
+  easterMonday: 'Annandag påsk',
+  walpurgisNight: 'Valborgsmässoafton',
+  mayFirst: 'Första maj',
+  ascensionDay: 'Kristi himmelsfärdsdag',
+  swedishNationalDay: 'Sveriges nationaldag',
+  pentecostEve: 'Pingstafton',
+  whitSunday: 'Pingstdagen',
+  midsummerEve: 'Midsommarafton',
+  midsummerDay: 'Midsommardagen',
+  allSaintsEve: 'Allhelgonaafton',
+  allSaintsDay: 'Alla helgons dag',
+  christmasEve: 'Julafton',
+  christmasDay: 'Juldagen',
+  boxingDay: 'Annandag jul',
+  newYearsEve: 'Nyårsafton',
 };
 
 const FRIDAY = 5;
@@ -68,9 +68,9 @@ const getHolidayJSON = (name, date, isPublicHoliday = false) => ({
 
 const fixedDate = (year, month, day) => {
   const m =
-    month.toString().length > 1 ? month.toString() : "0" + month.toString();
-  const d = day.toString().length > 1 ? day.toString() : "0" + day.toString();
-  return new Date(year + "-" + m + "-" + d + "T00:00:00Z");
+    month.toString().length > 1 ? month.toString() : '0' + month.toString();
+  const d = day.toString().length > 1 ? day.toString() : '0' + day.toString();
+  return new Date(year + '-' + m + '-' + d + 'T00:00:00Z');
 };
 
 const firstOfWeekdayAfterDate = (weekday, refDate) => {
