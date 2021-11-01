@@ -65,13 +65,13 @@ const isPublicHoliday = (date, language) => {
     if (date.getDay() === SUNDAY) {
         return true;
     }
-
+    
     const holidays = getHolidaysForYear(date.getFullYear(), language);
     const [holiday] = holidays.filter(holiday =>
         holiday.day === date.getDate() &&
         holiday.month === (date.getMonth() + 1) &&
         holiday.year === date.getFullYear() &&
-        holiday.isPublicoliday
+        holiday.isPublicHoliday
     );
     return holiday || false;
 }

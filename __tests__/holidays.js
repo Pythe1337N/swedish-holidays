@@ -172,13 +172,21 @@ test('Return a nice list with all holidays for 2020', () => {
     expect(allIsValid).toBeTruthy();
 });
 
-test('Identify sunday as a public holiday', () => {
-    const saturdayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-6'));
-    const sundayIsPublicHoliday = isPublicHoliday(new Date('2021-11-7'));
-    const mondayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-8'));
+test('Identify Sunday as a public holiday', () => {
+    const saturdayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-13'));
+    const sundayIsPublicHoliday = isPublicHoliday(new Date('2021-11-14'));
+    const mondayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-15'));
     expect(saturdayIsNotPublicHoliday).toBeFalsy();
     expect(sundayIsPublicHoliday).toBeTruthy();
     expect(mondayIsNotPublicHoliday).toBeFalsy();
+});
+
+test('Identify a public holiday as a public holiday', () => {
+    const christmasEve = isPublicHoliday(new Date('2021-12-24'));
+    const christmasDay = isPublicHoliday(new Date('2021-12-25'));
+    
+    expect(christmasEve).toBeFalsy();
+    expect(christmasDay).toBeTruthy();
 });
 
 test('Handle translations', () => {
