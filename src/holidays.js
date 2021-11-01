@@ -42,6 +42,7 @@ const swedishHolidayNames = {
 }
 
 const FRIDAY = 5;
+const SUNDAY = 0;
 
 const isHoliday = (date, language) => {
     if (!date) {
@@ -61,7 +62,7 @@ const isPublicHoliday = (date, language) => {
         return isPublicHoliday(new Date());
     }
     
-    if (date.getDay() === 0) {
+    if (date.getDay() === SUNDAY) {
         return true;
     }
 
