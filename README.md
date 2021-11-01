@@ -8,7 +8,12 @@ $ npm install swedish-holidays
 
 ## How to use:
 ```js
-const { getHolidays, getUpcomingHolidays, isHoliday } = require('swedish-holidays');
+const {
+    getHolidays,
+    getUpcomingHolidays,
+    isHoliday,
+    isPublicHoliday
+} = require('swedish-holidays');
 
 // Get an array of all holidays for the current
 const holidays = getHolidays();
