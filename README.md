@@ -24,6 +24,12 @@ const isItAHolidayToday = isHoliday();
 
 // Or if you want to check a specific date
 const isThisAHoliday = isHoliday(new Date("2019-12-24")); 
+
+// Check if today is a public holiday in Sweden (see https://www.riksdagen.se/sv/dokument-lagar/dokument/svensk-forfattningssamling/lag-1989253-om-allmanna-helgdagar_sfs-1989-253)
+const isItAPublicHolidayToday = isPublicHoliday();
+
+// Or if you want to check a specific date
+const isThisAPublicHoliday = isPublicHoliday(new Date("2021-11-1")); 
 ```
 The result will always be an ```Array``` filled with JSON formatted holiday information including name and date.
 ```js
@@ -33,19 +39,23 @@ The result will always be an ```Array``` filled with JSON formatted holiday info
         date: '2019-12-24T00:00:00.000Z',
         day: 24,
         month: 12,
-        year: 2019
+        year: 2019,
+        isPublicHoliday: false,
     },
     {
         name: 'Juldagen',
         date: '2019-12-25T00:00:00.000Z',
         day: 25,
         month: 12,
-        year: 2019
+        year: 2019,
+        isPublicHoliday: true,
     },
     ...
 ]   
 ```
 When using `isHoliday` the result is `false` if the provided date is not a holiday, otherwise it is the holiday JSON object.
+
+When using `isPublicHoliday` the result is `false` if the provided date is not a public holiday.
 
 ## Localization
 If you want the holiday names to be returned using a different language than the default (Swedish), use the `language` JSON object and modify it before passing it to the `getHolidays` function.
