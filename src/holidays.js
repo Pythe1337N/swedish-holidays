@@ -56,12 +56,32 @@ const isHoliday = (date, language) => {
     return holiday || false;
 }
 
-const getHolidayJSON = (name, date) => ({
+const isPublicHoliday = (date, language) => {
+    if (!date) {
+        return isPublicHoliday(new Date());
+    }
+    
+    if (date.getDay() === 0) {
+        return true;
+    }
+
+    const holidays = getHolidaysForYear(date.getFullYear(), language);
+    const [holiday] = holidays.filter(holiday =>
+        holiday.day === date.getDate() &&
+        holiday.month === (date.getMonth() + 1) &&
+        holiday.year === date.getFullYear() &&
+        holiday.isPublicoliday
+    );
+    return holiday || false;
+}
+
+const getHolidayJSON = (name, date, isPublicHoliday = false) => ({
     name,
     date,
     day: date.getDate(),
     month: date.getMonth() + 1,
     year: date.getFullYear(),
+    isPublicHoliday,
 });
 
 const fixedDate = (year, month, day) => {
@@ -126,36 +146,36 @@ const getHolidaysForYear = (year, language) => {
         const pingst = easterSunday.plusWeeks(7);
 
         holidays.push(getHolidayJSON(language.maundyThursday, easterSunday.plusDays(-3)));
-        holidays.push(getHolidayJSON(language.goodFriday, easterSunday.plusDays(-2)));
+        holidays.push(getHolidayJSON(language.goodFriday, easterSunday.plusDays(-2), true));
         holidays.push(getHolidayJSON(language.holySaturday, easterSunday.plusDays(-1)));
-        holidays.push(getHolidayJSON(language.easterSunday, easterSunday));
-        holidays.push(getHolidayJSON(language.easterMonday, easterSunday.plusDays(1)));
+        holidays.push(getHolidayJSON(language.easterSunday, easterSunday, true));
+        holidays.push(getHolidayJSON(language.easterMonday, easterSunday.plusDays(1), true));
 
-        holidays.push(getHolidayJSON(language.ascensionDay, christSkyFly));
+        holidays.push(getHolidayJSON(language.ascensionDay, christSkyFly, true));
 
         holidays.push(getHolidayJSON(language.pentecostEve, pingst.plusDays(-1)));
-        holidays.push(getHolidayJSON(language.whitSunday, pingst));
+        holidays.push(getHolidayJSON(language.whitSunday, pingst, true));
     }
 
     const fylla = firstOfWeekdayAfterDate(FRIDAY, fixedDate(year, 6, 19));
     const bakis = fylla.plusDays(1);
 
     holidays.push(getHolidayJSON(language.midsummerEve, fylla));
-    holidays.push(getHolidayJSON(language.midsummerDay, bakis));
+    holidays.push(getHolidayJSON(language.midsummerDay, bakis, true));
 
     const spooky = firstOfWeekdayAfterDate(FRIDAY, fixedDate(year, 10, 30));
     holidays.push(getHolidayJSON(language.allSaintsEve, spooky));
-    holidays.push(getHolidayJSON(language.allSaintsDay, spooky.plusDays(1)));
+    holidays.push(getHolidayJSON(language.allSaintsDay, spooky.plusDays(1), true));
 
-    holidays.push(getHolidayJSON(language.newYearsDay, fixedDate(year, 1, 1)));
+    holidays.push(getHolidayJSON(language.newYearsDay, fixedDate(year, 1, 1), true));
     holidays.push(getHolidayJSON(language.twelfthNight, fixedDate(year, 1, 5)));
-    holidays.push(getHolidayJSON(language.epiphany, fixedDate(year, 1, 6)));
+    holidays.push(getHolidayJSON(language.epiphany, fixedDate(year, 1, 6), true));
     holidays.push(getHolidayJSON(language.walpurgisNight, fixedDate(year, 4, 30)));
-    holidays.push(getHolidayJSON(language.mayFirst, fixedDate(year, 5, 1)));
-    holidays.push(getHolidayJSON(language.swedishNationalDay, fixedDate(year, 6, 6)));
+    holidays.push(getHolidayJSON(language.mayFirst, fixedDate(year, 5, 1), true));
+    holidays.push(getHolidayJSON(language.swedishNationalDay, fixedDate(year, 6, 6), true));
     holidays.push(getHolidayJSON(language.christmasEve, fixedDate(year, 12, 24)));
-    holidays.push(getHolidayJSON(language.christmasDay, fixedDate(year, 12, 25)));
-    holidays.push(getHolidayJSON(language.boxingDay, fixedDate(year, 12, 26)));
+    holidays.push(getHolidayJSON(language.christmasDay, fixedDate(year, 12, 25), true));
+    holidays.push(getHolidayJSON(language.boxingDay, fixedDate(year, 12, 26), true));
     holidays.push(getHolidayJSON(language.newYearsEve, fixedDate(year, 12, 31)));
     return holidays.sort((a,b) => a.date.getTime() - b.date.getTime());
 }
@@ -164,5 +184,6 @@ module.exports = {
     getHolidays: getHolidaysForYear,
     getUpcomingHolidays,
     isHoliday,
+    isPublicHoliday,
     language: { ...swedishHolidayNames }
 };
