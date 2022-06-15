@@ -1,16 +1,16 @@
 {
-  "name": "swedish-holidays",
-  "version": "1.1.0",
-  "description": "Library for calculating the date of all swedish holidays for any given year.",
+  "name": "swedish-holidays-ts",
+  "version": "1.0.2",
+  "description": "Typescript library for calculating the date of all swedish holidays for any given year.",
   "main": "./dist/holidays.js",
+  "types": "./dist/holidays.d.ts",
   "scripts": {
-    "build": "babel ./src --out-dir ./dist -s inline --delete-dir-on-start",
-    "prepack": "npm run build",
-    "test": "npm run build && jest"
+    "build": "tsc",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pythe1337N/swedish-holidays.git"
+    "url": "git+https://github.com/martinlarka/swedish-holidays-ts.git"
   },
   "keywords": [
     "holiday",
@@ -19,26 +19,25 @@
     "helger",
     "helgdag",
     "helgdagar",
-    "sverige"
+    "sverige",
+    "typescript"
   ],
-  "author": "Oskar Bernberg (Pythe1337N)",
+  "author": "Martin Lärka",
   "license": "MIT",
   "files": [
     "dist/*",
     "examples/*"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.16.0",
-    "jest": "^27.3.1",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "typescript": "^4.7.3",
+    "vitest": "^0.15.0"
   },
   "precommit": "build",
-  "homepage": "https://github.com/Pythe1337N/swedish-holidays#readme",
+  "homepage": "https://github.com/martinlarka/swedish-holidays-ts#readme",
   "bugs": {
-    "url": "https://github.com/Pythe1337N/swedish-holidays/issues"
+    "url": "https://github.com/martinlarka/swedish-holidays-ts/issues"
   },
-  "runkitExampleFilename": "./examples/example.js"
+  "runkitExampleFilename": "./examples/example.ts",
+  "dependencies": {}
 }

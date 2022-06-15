@@ -1,0 +1,28 @@
+// Vitest Snapshot v1
+
+exports[`Test swedishHolidayNames 1`] = `
+{
+  "allSaintsDay": "Alla helgons dag",
+  "allSaintsEve": "Allhelgonaafton",
+  "ascensionDay": "Kristi himmelsfärdsdag",
+  "boxingDay": "Annandag jul",
+  "christmasDay": "Juldagen",
+  "christmasEve": "Julafton",
+  "easterMonday": "Annandag påsk",
+  "easterSunday": "Påskdagen",
+  "epiphany": "Trettondedag jul",
+  "goodFriday": "Långfredagen",
+  "holySaturday": "Påskafton",
+  "maundyThursday": "Skärtorsdagen",
+  "mayFirst": "Första maj",
+  "midsummerDay": "Midsommardagen",
+  "midsummerEve": "Midsommarafton",
+  "newYearsDay": "Nyårsdagen",
+  "newYearsEve": "Nyårsafton",
+  "pentecostEve": "Pingstafton",
+  "swedishNationalDay": "Sveriges nationaldag",
+  "twelfthNight": "Trettondagsafton",
+  "walpurgisNight": "Valborgsmässoafton",
+  "whitSunday": "Pingstdagen",
+}
+`;

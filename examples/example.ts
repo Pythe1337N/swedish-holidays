@@ -1,4 +1,9 @@
-const { getHolidays, getUpcomingHolidays, isHoliday, language } = require('swedish-holidays');
+import {
+  getHolidays,
+  getUpcomingHolidays,
+  isHoliday,
+  language,
+} from "swedish-holidays-ts";
 
 // Get an array of all holidays for the current
 const holidays = getHolidays();
@@ -17,7 +22,7 @@ const isThisAHoliday = isHoliday(new Date("2019-12-24"));
 
 // Create a translation
 const translation = { ...language };
-translation.christmasEve = 'Christmas Eve';
+translation.christmasEve = "Christmas Eve";
 
 // Get an array of holidays with applied translation
 const holidays2020 = getHolidays(2020, translation);
