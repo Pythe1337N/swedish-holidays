@@ -11,6 +11,7 @@ test('Should be 16:th of April 2022', () => {
     assert.strictEqual(holiday.month, 4);
     const expectedDate = new Date('2022-04-16T00:00:00.000Z');
     assert.strictEqual(holiday.date.getTime(), expectedDate.getTime());
+    assert.strictEqual(holiday.isPublicHoliday, false);
 });
 
 test('Might be check', () => {

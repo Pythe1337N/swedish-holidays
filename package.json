@@ -18,10 +18,12 @@
         "holiday",
         "holidays",
         "sweden",
+        "easter",
         "helger",
         "helgdag",
         "helgdagar",
-        "sverige"
+        "sverige",
+        "påsk"
     ],
     "author": "Oskar Bernberg (Pythe1337N)",
     "license": "MIT",
@@ -30,7 +32,7 @@
         "examples/*"
     ],
     "devDependencies": {
-        "@types/node": "^18.11.15",
+        "@types/node": "^18.11.17",
         "pre-commit": "^1.2.2",
         "prettier": "^2.8.1",
         "pretty-quick": "^3.1.3",
