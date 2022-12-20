@@ -17,3 +17,12 @@ test('Should throw an error if year is out of range', () => {
     assert.throws(() => getHolidays(1581, testLanguage), new Error('Requested year is out of range'));
     assert.throws(() => getHolidays(8703, testLanguage), new Error('Requested year is out of range'));
 });
+
+test('isPublicHoliday should be true for sundays', () => {
+    const saturdayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-13'));
+    const sundayIsPublicHoliday = isPublicHoliday(new Date('2021-11-14'));
+    const mondayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-15'));
+    assert.strictEqual(saturdayIsNotPublicHoliday, false);
+    assert.strictEqual(sundayIsPublicHoliday, true);
+    assert.strictEqual(mondayIsNotPublicHoliday, false);
+});

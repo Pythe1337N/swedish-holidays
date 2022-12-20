@@ -23,7 +23,7 @@ import {
     WhitSunday
 } from './dates';
 import { Holiday, IHolidayOptions, IHolidayNames } from './holidays.interface';
-import { isSameDate, plusYears } from './date-utils';
+import { isSameDate, plusYears, Weekday } from './date-utils';
 import svSe from './holiday-names.sv-se';
 
 const Holidays = [
@@ -70,6 +70,9 @@ export const isHoliday = (date: Date = new Date(), options: IHolidayOptions = { 
 };
 
 export const isPublicHoliday = (date: Date = new Date(), options?: IHolidayOptions): boolean => {
+    if (date.getDay() === Weekday.Sunday) {
+        return true;
+    }
     return isHoliday(date, options)?.isPublicHoliday || false;
 };
 
