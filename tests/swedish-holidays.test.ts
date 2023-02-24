@@ -19,10 +19,15 @@ test('Should throw an error if year is out of range', () => {
 });
 
 test('isPublicHoliday should be true for sundays', () => {
-    const saturdayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-13'));
-    const sundayIsPublicHoliday = isPublicHoliday(new Date('2021-11-14'));
-    const mondayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-15'));
+    const saturdayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-13T01:23:45.678Z'));
+    const sundayIsPublicHoliday = isPublicHoliday(new Date('2021-11-14T01:23:45.678Z'));
+    const mondayIsNotPublicHoliday = isPublicHoliday(new Date('2021-11-15T01:23:45.678Z'));
     assert.strictEqual(saturdayIsNotPublicHoliday, false);
     assert.strictEqual(sundayIsPublicHoliday, true);
     assert.strictEqual(mondayIsNotPublicHoliday, false);
+});
+
+test('isPublicHoliday should be true for christmas day', () => {
+    const christmas = isPublicHoliday(new Date('2021-12-25T01:23:45.678Z'));
+    assert.strictEqual(christmas, true);
 });

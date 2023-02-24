@@ -21,6 +21,10 @@ export function firstOfWeekdayAfterDate(weekday: Weekday, refDate: Date) {
 
 export function fixedDate(date: Date) {
     const d = new Date(date);
+    d.setMilliseconds(0);
+    d.setSeconds(0);
+    d.setMinutes(0);
+    d.setHours(0);
     d.setMinutes(-d.getTimezoneOffset());
     return d;
 }
